@@ -40,11 +40,11 @@ body {
    height: 100%;
 }
 
-.inner-container-X {
+.inner-container-Y {
    flex-direction: row;
 }
 
-.X-axis {
+.Y-axis {
    height: 100%;
    padding-right: 5px;
    display: flex;
@@ -52,7 +52,7 @@ body {
    justify-content: space-between;
 }
 
-.inner-container-Y {
+.inner-container-X {
    margin-left: 3em;
    width: 30vmax;
    font-size: x-small;
@@ -62,7 +62,7 @@ body {
    justify-content: space-between;
 }
 
-.inner-container-Y > * {
+.inner-container-X > * {
    width: 70px;
    display: flex;
    justify-content: center;
@@ -105,13 +105,13 @@ div[id|="bar"] {
       font-size: 25px;
    }
 
-   .inner-container-Y {
+   .inner-container-X {
       font-size: 5px;
       width: 30vmax;
       margin-left: 5em;
    }
 
-   .inner-container-Y {
+   .inner-container-X {
       margin-left: 7em;
    }
 }

@@ -62,7 +62,7 @@ const displayData = () => {
    })[0];
 
    for (let i = 1; i < Object.keys(country.timeline.cases).length; i++) {
-      document.getElementById(`y-point-${i}`).innerText = Object.keys(
+      document.getElementById(`x-point-${i}`).innerText = Object.keys(
          country.timeline.cases
       )[i];
    }
@@ -86,16 +86,36 @@ const displayData = () => {
    }
 
    for (let i = 0; i < 5; i++) {
-      document.getElementById(`x-point-${i}`).innerText =
+      document.getElementById(`y-point-${i}`).innerText =
          yCords[4] >= 10000 && i != 0 ? `${yCords[i] / 1000}k` : yCords[i];
    }
 };
 
 const renderBars = (values, base) => {
-   for (let i = 0; i < values.length; i++) {
-      document.getElementById(`bar-${i}`).style.height = `${Math.round(
-         (values[i] * 25) / base
-      )}%`;
+   for (let i = 0; i < 7; i++) {
+      let height = `${Math.round((values[i] * 25) / base)}%`;
+      requestAnimationFrame(function () {
+         animateBar(i, height);
+      });
+   }
+};
+
+const animateBar = (i, maxHeight) => {
+   console.log(i, maxHeight);
+   if (
+      document.getElementById(`bar-${i}`).style.height != maxHeight &&
+      maxHeight != "0%"
+   ) {
+      document.getElementById(`bar-${i}`).style.height = `${
+         +document.getElementById(`bar-${i}`).style.height.slice(0, -1) +
+         (+document.getElementById(`bar-${i}`).style.height.slice(0, -1) >
+         maxHeight.slice(0, -1)
+            ? -1
+            : 1)
+      }%`;
+      requestAnimationFrame(function () {
+         animateBar(i, maxHeight);
+      });
    }
 };
 
