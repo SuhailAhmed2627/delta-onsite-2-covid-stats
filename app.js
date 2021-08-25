@@ -70,19 +70,19 @@ const displayData = () => {
    if (typeSelectDOM.value == "deaths") {
       deaths = getValues(country, "deaths");
       yCords = getYcords(deaths);
-      renderBars(deaths, yCords[1]);
+      renderBars(deaths, yCords[1], "grey");
    }
 
    if (typeSelectDOM.value == "cases") {
       cases = getValues(country, "cases");
       yCords = getYcords(cases);
-      renderBars(cases, yCords[1]);
+      renderBars(cases, yCords[1], "red");
    }
 
    if (typeSelectDOM.value == "recoveries") {
-      recoveries = getValues(country, "recovered");
+      recoveries = getValues(country, "cases");
       yCords = getYcords(recoveries);
-      renderBars(recoveries, yCords[1]);
+      renderBars(recoveries, yCords[1], "green");
    }
 
    for (let i = 0; i < 5; i++) {
@@ -91,8 +91,9 @@ const displayData = () => {
    }
 };
 
-const renderBars = (values, base) => {
+const renderBars = (values, base, type) => {
    for (let i = 0; i < 7; i++) {
+      document.getElementById(`bar-${i}`).className = type;
       let height = `${Math.round((values[i] * 25) / base)}%`;
       requestAnimationFrame(function () {
          animateBar(i, height);
@@ -101,7 +102,6 @@ const renderBars = (values, base) => {
 };
 
 const animateBar = (i, maxHeight) => {
-   console.log(i, maxHeight);
    if (
       document.getElementById(`bar-${i}`).style.height != maxHeight &&
       maxHeight != "0%"

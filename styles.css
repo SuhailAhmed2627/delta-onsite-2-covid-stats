@@ -115,3 +115,15 @@ div[id|="bar"] {
       margin-left: 7em;
    }
 }
+
+.red {
+   background-color: #d0454c !important;
+}
+
+.green {
+   background-color: #529e66 !important;
+}
+
+.grey {
+   background-color: gray !important;
+}
