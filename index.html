@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>COVID-19 STATISTICS</title>
+      <link rel="stylesheet" href="styles.css" />
+   </head>
+   <body>
+      <div class="title flex-center">COVID-19 STATISTICS</div>
+      <div class="outer-container flex-center">
+         <div class="chart-container flex-center">
+            <div class="inner-container-X flex-center">
+               <div class="X-axis flex-center">
+                  <div id="x-point-4">4</div>
+                  <div id="x-point-3">3</div>
+                  <div id="x-point-2">2</div>
+                  <div id="x-point-1">1</div>
+                  <div id="x-point-0">0</div>
+               </div>
+               <div id="chart">
+                  <div class="day">
+                     <div id="bar-0"></div>
+                  </div>
+                  <div class="day">
+                     <div id="bar-1"></div>
+                  </div>
+                  <div class="day">
+                     <div id="bar-2"></div>
+                  </div>
+                  <div class="day">
+                     <div id="bar-3"></div>
+                  </div>
+                  <div class="day">
+                     <div id="bar-4"></div>
+                  </div>
+                  <div class="day">
+                     <div id="bar-5"></div>
+                  </div>
+                  <div class="day">
+                     <div id="bar-6"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="inner-container-Y">
+               <div id="y-point-1">27/08/2021</div>
+               <div id="y-point-2">26/08/2021</div>
+               <div id="y-point-3">25/08/2021</div>
+               <div id="y-point-4">24/08/2021</div>
+               <div id="y-point-5">23/08/2021</div>
+               <div id="y-point-6">22/08/2021</div>
+               <div id="y-point-7">21/08/2021</div>
+            </div>
+         </div>
+         <div class="menu-container flex-center">
+            <p>Select Country and Data to visualise</p>
+            <br />
+            <select
+               name="country"
+               id="country-select"
+               onchange="displayData();"
+            >
+               <option selected value="null">Select A Country-province</option>
+            </select>
+            <br />
+            <select name="type" id="type-select" onchange="displayData();">
+               <option value="cases">Cases</option>
+               <option value="recoveries">Recoveries</option>
+               <option value="deaths">Deaths</option>
+            </select>
+         </div>
+      </div>
+      <script src="app.js"></script>
+   </body>
+</html>
