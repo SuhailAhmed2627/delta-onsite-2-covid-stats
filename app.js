@@ -107,7 +107,8 @@ function fetchData() {
       .then((info) => {
          data = info;
          init();
-      });
+      })
+      .catch((err) => console.log(err));
 }
 
 fetchData();
